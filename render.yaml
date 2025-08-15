@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: soe-robotics-club
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server.production.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /api/health
